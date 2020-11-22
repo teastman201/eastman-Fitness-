@@ -3,45 +3,28 @@
 // *********************************************************************************
 
 const path = require('path');
-const router = express.Router();
+var express = require('express')
+var router = express.Router()
 
-// Routes
-// =============================================================
-module.exports = function (router) {
+// middleware that is specific to this router
+router.use(function timeLog(req, res, next) {
+  console.log('Time: ', Date.now())
+  next()
+})
+// define the home page route
+router.get('/', function (req, res) {
+  res.sendFile(express.static(__dirname, "/exercise.html"));
+  // res.send('Birds home page')
+})
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
+// const router = express.Router();
+// app.use(router);
 
-  // index route loads view.html
-  router.get("/exercise", function (req, res) {
-    res.sendFile(path.join(__dirname, "../exercise.html"));
-  });
+// // Routes
+// router.get("/exercise", function (req, res) {
+//   console.log("exerciseRoute");
+//   res.sendFile(express.static(__dirname, "/exercise.html"));
 
-  // router.get("/api/transaction", (req, res) => {
-  //   Transaction.find({})
-  //     .sort({ date: -1 })
-  //     .then(dbTransaction => {
-  //       res.json(dbTransaction);
-  //     })
-  //     .catch(err => {
-  //       res.status(400).json(err);
-  //     });
-  // });
+// });
 
-  module.exports = router;
-
-  // // cms route loads cms.html
-  // app.get("/cms", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/cms.html"));
-  // });
-
-  // // blog route loads blog.html
-  // app.get("/blog", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/blog.html"));
-  // });
-
-  // // authors route loads author-manager.html
-  // app.get("/authors", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/author-manager.html"));
-  // });
-
-};
+module.exports = router;
