@@ -12,7 +12,8 @@ router.use(function timeLog(req, res, next) {
   next()
 })
 // define the home page route
-router.get('/', function (req, res) {
+router.get('/exercise', function (req, res) {
+  console.log()
   res.sendFile(express.static(__dirname, "/exercise.html"));
   // res.send('Birds home page')
 })
