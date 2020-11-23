@@ -21,9 +21,6 @@ app.post("/api/workouts", function (req, res) {
 })
 
 app.put("/api/workouts/:id", function (req, res) {
-  // Here we add an "include" property to our options in our findOne query
-  // We set the value to an array of the models we want to include in a left outer join
-  // In this case, just db.Post
   db.Workout.findByIdAndUpdate(
     req.params.id,
     {
@@ -38,6 +35,13 @@ app.put("/api/workouts/:id", function (req, res) {
   ).then(function (dbWorkout) {
     res.json(dbWorkout);
   });
+});
+
+app.get("/api/workouts/range", function (req, res) {
+  db.Workout.find({})
+    .then(function (dbWorkout) {
+      res.json(dbWorkout);
+    });
 });
 
 module.exports = app 
