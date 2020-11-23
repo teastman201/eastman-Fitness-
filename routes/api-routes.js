@@ -1,5 +1,5 @@
 const app = require("express").Router();
-// the below code throws an error, it is unclear why.
+// needed an index file to route to the workout.js
 var db = require("../models");
 
 
