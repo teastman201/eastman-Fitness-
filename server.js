@@ -1,8 +1,9 @@
 // Brings in required packages
 const express = require("express");
-const path = require("path");
-const logger = require("morgan");
+// const path = require("path");
+// const logger = require("morgan");
 const mongoose = require("mongoose");
+// const db = require("../models");
 
 // using 8080 because 3000 is being used by comparison test environment.
 const PORT = process.env.PORT || 8080;
@@ -15,7 +16,7 @@ app.use(express.static("public"));
 
 // Creates MongoDB database connection
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness", {
-    useNewURLParser: true,
+    // useNewURLParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
 });

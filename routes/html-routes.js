@@ -3,7 +3,7 @@
 // *********************************************************************************
 
 const path = require('path');
-var router = require('express').Router()
+const app = require("express").Router();
 
 // middleware that is specific to this router
 // router.use(function timeLog(req, res, next) {
@@ -12,7 +12,7 @@ var router = require('express').Router()
 // })
 
 // define the home page route
-router.get('/exercise', function (req, res) {
+app.get('/exercise', function (req, res) {
   console.log()
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
   // res.send('Birds home page')
@@ -28,4 +28,4 @@ router.get('/exercise', function (req, res) {
 
 // });
 
-module.exports = router;
+module.exports = app;
