@@ -12,11 +12,20 @@ const app = require("express").Router();
 // })
 
 // define the home page route
+app.get("/"), function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"))
+}
+
 app.get('/exercise', function (req, res) {
   console.log()
   res.sendFile(path.join(__dirname, "../public/exercise.html"));
   // res.send('Birds home page')
 })
+
+app.get("/stats", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/stats.html"))
+})
+
 
 // const router = express.Router();
 // app.use(router);
