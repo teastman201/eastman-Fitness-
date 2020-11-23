@@ -3,18 +3,18 @@
 // *********************************************************************************
 
 const path = require('path');
-var express = require('express')
-var router = express.Router()
+var router = require('express').Router()
 
 // middleware that is specific to this router
-router.use(function timeLog(req, res, next) {
-  console.log('Time: ', Date.now())
-  next()
-})
+// router.use(function timeLog(req, res, next) {
+//   console.log('Time: ', Date.now())
+//   next()
+// })
+
 // define the home page route
 router.get('/exercise', function (req, res) {
   console.log()
-  res.sendFile(express.static(__dirname, "/exercise.html"));
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
   // res.send('Birds home page')
 })
 
