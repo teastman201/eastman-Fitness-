@@ -4,9 +4,7 @@ var db = require("../models");
 
 
 app.get("/api/workouts", function (req, res) {
-  // Here we add an "include" property to our options in our findAll query
-  // We set the value to an array of the models we want to include in a left outer join
-  // In this case, just db.Post
+  // query to find all workouts in the Workout database
   db.Workout.find({})
     .then(function (dbWorkout) {
       res.json(dbWorkout);
@@ -14,6 +12,7 @@ app.get("/api/workouts", function (req, res) {
 });
 
 app.post("/api/workouts", function (req, res) {
+  // query to create a workout in the Workout database
   db.Workout.create({})
     .then(function (dbWorkout) {
       res.json(dbWorkout);
@@ -21,6 +20,7 @@ app.post("/api/workouts", function (req, res) {
 })
 
 app.put("/api/workouts/:id", function (req, res) {
+  // query to find a workout in the Workout database by id
   db.Workout.findByIdAndUpdate(
     req.params.id,
     {
@@ -38,6 +38,7 @@ app.put("/api/workouts/:id", function (req, res) {
 });
 
 app.get("/api/workouts/range", function (req, res) {
+  // query to find all workouts in the Workout database
   db.Workout.find({})
     .then(function (dbWorkout) {
       res.json(dbWorkout);
