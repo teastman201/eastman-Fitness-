@@ -1,15 +1,19 @@
 // Brings in required packages
 const express = require("express");
-// const path = require("path");
-// const logger = require("morgan");
+
+const logger = require("morgan");
 const mongoose = require("mongoose");
-// const db = require("../models");
+// const db = require("./models");
+const path = require("path");
 
 // using 8080 because 3000 is being used by comparison test environment.
 const PORT = process.env.PORT || 8080;
 
+
+
 // Creates express server
 const app = express();
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
