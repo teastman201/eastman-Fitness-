@@ -1,6 +1,6 @@
 const app = require("express").Router();
 // the below code throws an error, it is unclear why.
-// var db = require("../models");
+var db = require("../models");
 
 
 app.get("/api/workouts", function (req, res) {
