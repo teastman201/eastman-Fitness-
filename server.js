@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 // using 8080 because 3000 is being used by comparison test environment.
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 
 
